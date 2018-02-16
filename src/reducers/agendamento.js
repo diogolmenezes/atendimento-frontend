@@ -7,7 +7,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case CARREGAR_AGENDAMENTOS:
       console.log('REDUCER =>', action);
-      return action.payload;
+      return { ...state, agendamentos: action.payload.data };
     default:
       return state;
   }

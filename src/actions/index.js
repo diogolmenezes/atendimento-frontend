@@ -22,19 +22,20 @@ export const incrementIfOdd = () => async (dispatch, getState) => {
 };
 
 export const CARREGAR_AGENDAMENTOS = 'CARREGAR_AGENDAMENTOS';
-export function carregarAgendamentos() {
-  const request = Axios({
+export const carregarAgendamentos = () => async (dispatch) => {
+  Axios({
     method: 'GET',
     url: `${Config.apiServerUrl}/atendimento-backend/agendamentos`,
     headers: {
       'x-cpf': '11111111111',
-      'x-origin-application': 'aplicacao',
+      'x-origin-application': 'APLICACAO',
       'x-origin-channel': 'WEB',
     },
-  });
-
-  return {
-    type: CARREGAR_AGENDAMENTOS,
-    payload: request,
-  };
-}
+  })
+    .then((response) => {
+      dispatch({
+        type: CARREGAR_AGENDAMENTOS,
+        payload: response,
+      });
+    });
+};

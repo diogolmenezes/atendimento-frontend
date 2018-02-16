@@ -11,6 +11,7 @@
   "extends": ["airbnb"],
   "rules": {
     "ignoreStrings": true,
+    "react/forbid-prop-types": 0,
     "no-underscore-dangle": [2, { "allow": ["__INITIAL_STATE__"] }]
   },
   "env": {
