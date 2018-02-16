@@ -15,7 +15,9 @@ class Agendamento extends Component {
     const props = this.props;
 
     props.carregarAgendamentos()
-      .then();
+      .then((response) => {
+        console.log('RESPOSTA =>', response);
+      });
   }
 
   render() {
@@ -27,7 +29,7 @@ class Agendamento extends Component {
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({ agendamento }) => ({ agendamento });
 const mapDispatchToProps = dispatch => bindActionCreators({ carregarAgendamentos }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Agendamento);
